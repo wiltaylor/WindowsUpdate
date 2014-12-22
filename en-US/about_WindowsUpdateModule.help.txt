@@ -1,0 +1,59 @@
+TOPIC
+	about_WindowsUpdateModule
+	
+SHORT DESCRIPTION
+	This document explains how to use the windows update Powershell module and all of its features.
+
+FEATURES
+	Key features of this module are the following:
+	* Ability to check the settings of Windows update and modify them from Powershell.
+	* Ability to scan a machine that is not connected to the internet and use another machine 
+	  which is to download its patches.
+	* Ability to maintain a repository directory with windows patches in it. Clear out old un-used patches
+	  etc.
+	* Ability to scan and install patches on machines which don't support powershell.
+	
+HOW TO: How to patch a machine not connected to the internet.
+	1) #On your internet connected machine run the following command:
+	   Receive-ScanCab
+	   
+	   #Alternativly if you want to scan and install updates on a machine which doesn't support Powershell 4
+	   #run the following command. This will also copy VBScripts required to do the scan and install.
+	   Receive-ScanCab -LegacyTools
+	   
+	2) #Copy the files generated in the previous step to the machine not connected to the ineternet.
+	
+	3) #Before completing this step you must do it from an elevated powershell session or command prompt.
+	   #If the machine is running powershell 4 and you have this module installed run the following
+	   #command. Make sure you point the -cab parameter to where you stored wsusscn2.cab.
+	   $Updates = Get-WindowsUpdates -Available -Cab c:\temp\wsusscn2.cab
+	   $Downloads = $Updates | Get-WindowsUpdateDownloadList
+	   $Downloads | Export-CLIXML .\Report.xml
+	   	   	   
+	   #If you don't have powershell running on the target machine you can run the vbscript instead.
+	   #Note: This VBScript will generate a report.xml file which can be imported by powershell.
+	   cscript.exe ScanUpdate.vbs /CAB:c:\temp\wsusscn2.cab /OUTPUT:c:\temp\report.xml
+	   
+	   #When one of the two methods above is completed you will have a report.xml file. Copy this back 
+	   #to your internet facing machine.
+	   
+	4) #On your internet facing machine run the following command. Make sure you point to where report.xml
+	   #is stored.
+	   $Updates = Import-CLIXML .\Report.xml
+	   $Updates | Add-WindowsUpdatesToRepository -Verbose
+	   
+	   #This command will download all the patchs to a folder called UpdateRepository in the current directory.
+	   #Once complete copy the folder or move it to a location accessible from the non internet connected
+	   #computer.
+	
+	5) #On the non internet connected computer run the following command. Make sure to update the path
+	   #of the OfflineRepository to where you stored it.
+	   $Updates = Get-WindowsUpdates -Available -Cab c:\temp\wsusscn2.cab
+	   $Updates | Install-WindowsUpdate -OfflineRepository c:\UpdateRepository
+	   
+	   #If you don't have powershell running on the target machine you can run the vbscript instead.
+	   cscript.exe InstallUpdates.vbs /REPOSITORY:c:\UpdateRepository /CAB:c:\temp\wsusscn2.cab
+	   
+	6) #At this point it is recommended to restart the machine. However if you would like to check if 
+       #a reboot is required you can run the following command and look at the RebootRequired property.
+	   Get-WindowsUpdateAgentInfo

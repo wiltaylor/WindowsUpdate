@@ -1,0 +1,10 @@
+.  $PSScriptRoot\Receive-ScanCab.ps1
+.  $PSScriptRoot\Get-WindowsUpdate.ps1
+.  $PSScriptRoot\Install-WindowsUpdate.ps1
+.  $PSScriptRoot\Get-WindowsUpdateDownloadList.ps1
+.  $PSScriptRoot\Add-WindowsUpdatesToRepository.ps1
+.  $PSScriptRoot\Uninstall-WindowsUpdate.ps1
+.  $PSScriptRoot\Get-WindowsUpdateAgentInfo.ps1
+.  $PSScriptRoot\Set-WindowsUpdateSettings.ps1
+.  $PSScriptRoot\Get-PatchTuesday.ps1
+.  $PSScriptRoot\Remove-UnusedPatches.ps1
