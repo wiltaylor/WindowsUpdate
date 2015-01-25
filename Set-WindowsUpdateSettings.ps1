@@ -61,6 +61,9 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Set-WindowsUpdateSettings.html
 #>
     param([switch]$EnableAutoUpdate, [switch]$DisableAutoUpdate, [switch]$EnableFeaturedUpdates, [switch]$DisableFeaturedUpdates, 
     [switch]$EnableRecommendedUpdates, [switch]$DisableRecommendedUpdates, [switch]$EnableNonAdministrators, [switch]$DisableNonAdministrators,

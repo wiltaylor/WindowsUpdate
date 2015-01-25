@@ -32,6 +32,9 @@
  .LINK
   about_WindowsUpdateModule
 
+ .LINK
+  http://www.win32.io/cmdlet/Get-PatchTuesday.html
+
 #>
     param($Month=((Get-Date).Month), $Year=((Get-Date).Year))
 

@@ -22,6 +22,9 @@
 
    .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Remove-UnusedPatches.html
 #>
     [CmdletBinding(
         SupportsShouldProcess=$true,

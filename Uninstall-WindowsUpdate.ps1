@@ -18,6 +18,9 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Uninstall-WindowsUpdate.html
 #>
     [CmdletBinding ()]
     param([Parameter(Mandatory=$True,ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$false)]$update)

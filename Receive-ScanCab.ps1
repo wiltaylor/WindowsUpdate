@@ -21,14 +21,15 @@
   Receive-ScanCab -Path "c:\temp\wsusscn2.cab" -LegacyTools
 
  .LINK
+  http://www.win32.io/cmdlet/Receive-ScanCab.html
+
+ .LINK
   about_WindowsUpdateModule
 #>
-    param($Path = ".\wsusscn2.cab", [switch]$LegacyTools) 
-
-    $path = Resolve-Path $Path
-    
+    param($Path = ".\wsusscn2.cab", [switch]$LegacyTools)    
     
     Invoke-WebRequest "go.microsoft.com/fwlink/?LinkId=76054" -OutFile $Path
+    $path = Resolve-Path $Path 
 
     if($LegacyTools) {
         $folder = Split-Path $Path -Parent

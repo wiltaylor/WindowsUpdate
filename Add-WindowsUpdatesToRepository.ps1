@@ -23,6 +23,10 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Add-WindowsUpdatesToRepository.html
+
 #>
     [CmdletBinding ()]
     param([Parameter(Mandatory=$True,ValueFromPipeline=$True)]$UpdateList, $Path = ".\UpdateRepository") 

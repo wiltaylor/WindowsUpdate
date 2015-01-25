@@ -23,6 +23,9 @@
   Get-WindowsUpdate -Available | Install-WindowsUpdate
 
  .LINK
+  http://www.win32.io/cmdlet/Install-WindowsUpdate.html
+
+ .LINK
   about_WindowsUpdateModule
 #>
     [CmdletBinding ()]

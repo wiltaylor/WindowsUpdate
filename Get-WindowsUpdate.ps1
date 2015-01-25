@@ -87,6 +87,9 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Get-WindowsUpdate.html
 #>
     param($cab = "", [switch]$History, [switch]$Available, [switch]$Installed ,[string]$Query = "", [switch]$Superseded, [string]$ID="", [string]$Revision="", 
     [ValidateSet("", "None", "Critical", "Important", "Moderate", "Low")]

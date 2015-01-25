@@ -11,6 +11,9 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Get-WindowsUpdateAgentInfo.html
 #>
 
     param()

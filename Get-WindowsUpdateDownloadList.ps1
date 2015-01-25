@@ -10,8 +10,6 @@
  .Inputs
   Update objects retrived by Get-WindowsUpdate.
 
-  Note: You can not use the History Switch with the Get-WindowsUpdate cmdlet.
-
  .Outputs
   Returns WindowsUpdateDownloadList objects for Add-WindowsUpdatesToRepository.
 
@@ -24,6 +22,9 @@
 
  .LINK
   about_WindowsUpdateModule
+
+ .LINK
+  http://www.win32.io/cmdlet/Get-WindowsUpdateDownloadList.html
 #>
     [CmdletBinding ()]
     param([Parameter(Mandatory=$True,ValueFromPipeline=$True, ValueFromPipelineByPropertyName=$false)]$Update)
